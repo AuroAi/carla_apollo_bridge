@@ -1,6 +1,8 @@
 # Carla Cyber Bridge
 
-This python package provides a bridge for communicating between Apollo's Cyber Python API and Carla.  Besides the source code, a Dockerfile and scripts are provided for getting setup quickly and easily.  This package was tested with Carla version 0.9.6.
+This python package provides a bridge for communicating between Apollo's Cyber Python API and Carla.  Besides the source code, a Dockerfile and scripts are provided for getting setup quickly and easily.  This package was tested with Carla version 0.9.6, and Apollo v5.0.0.
+
+This is a cyber port of the work done here: https://github.com/carla-simulator/ros-bridge
 
 ## Installation
 
@@ -28,12 +30,12 @@ The following commands will be run with 3 containers:
 
 ### Clone and build Apollo
 
-Our fork of Apollo has a few changes that make it work with this Carla bridge.  You can see those changes here: https://github.com/ApolloAuto/apollo/compare/2e8ad6fecb323915eeb74efa05cfd1647d6c6138...AngelJA:carla
+Our fork of Apollo has a few changes that make it work with this Carla bridge.  You can see those changes here: https://github.com/ApolloAuto/apollo/compare/v5.0.0...AuroAi:carla
 
 ```
 # run on local machine:
 
-git clone https://github.com/angelja/apollo --single-branch -b carla
+git clone https://github.com/auroai/apollo --single-branch -b carla
 cd apollo
 ./docker/scripts/dev_start.sh
 ./docker/scripts/dev_into.sh
@@ -151,4 +153,9 @@ Then, in a web browser, go to: `localhost:8888`
 ## Known Issues
 
 - Traffic lights, stop signs not in the HD Map.  This is because they are not included in the Carla OpenDRIVE maps.
-- Some apollo modules may crash periodically
+- When closing the bridge sometimes objects aren't cleaned up properly and cyber will error due to duplicate nodes.  The easiest solution is to reload the map in Carla:
+```
+root@7243ed7667bd:~/carla_cyber_bridge# python carla-python-0.9.6/util/config.py --host 172.17.0.1 -r
+```
+- Running the Carla server and Apollo on the same machine requires a lot of resources, so performance may be choppy.
+- Ego vehicle movement sometimes gets jumpy when being moved along planned trajectory.
