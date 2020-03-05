@@ -13,8 +13,8 @@ import logging
 
 from modules.perception.proto.perception_obstacle_pb2 import PerceptionObstacle
 
-from carla_cyber_bridge.actor import Actor
-import carla_cyber_bridge.transforms as transforms
+from .actor import Actor
+import transforms as transforms
 
 
 class Vehicle(Actor):

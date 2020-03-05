@@ -10,7 +10,7 @@
 Classes to handle Carla gnsss
 """
 
-from carla_cyber_bridge.sensor import Sensor
+from .sensor import Sensor
 
 
 class Gnss(Sensor):

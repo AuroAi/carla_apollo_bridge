@@ -15,8 +15,8 @@ import numpy
 from cyber_py import cyber_time
 from modules.drivers.proto.pointcloud_pb2 import PointXYZIT, PointCloud
 
-from carla_cyber_bridge.sensor import Sensor
-import carla_cyber_bridge.transforms as trans
+from .sensor import Sensor
+import transforms as trans
 
 
 class Lidar(Sensor):

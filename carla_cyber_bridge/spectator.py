@@ -10,7 +10,7 @@
 Classes to handle Carla spectator
 """
 
-from carla_cyber_bridge.actor import Actor
+from .actor import Actor
 
 
 class Spectator(Actor):

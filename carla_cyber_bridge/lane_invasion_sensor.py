@@ -12,7 +12,7 @@ Classes to handle lane invasion events
 
 import logging
 
-from carla_cyber_bridge.sensor import Sensor
+from .sensor import Sensor
 
 
 class LaneInvasionSensor(Sensor):

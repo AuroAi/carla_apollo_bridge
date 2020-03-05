@@ -15,8 +15,8 @@ import math
 
 from modules.perception.proto.perception_obstacle_pb2 import PerceptionObstacle
 
-from carla_cyber_bridge.child import Child
-from carla_cyber_bridge.actor_id_registry import ActorIdRegistry
+from .child import Child
+from .actor_id_registry import ActorIdRegistry
 
 class Actor(Child):
 

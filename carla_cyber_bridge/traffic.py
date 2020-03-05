@@ -12,7 +12,7 @@ Classes to handle Carla traffic objects
 
 import logging
 
-from carla_cyber_bridge.actor import Actor
+from .actor import Actor
 
 
 class Traffic(Actor):

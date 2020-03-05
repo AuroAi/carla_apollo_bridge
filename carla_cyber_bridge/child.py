@@ -13,7 +13,7 @@ Base Classes to handle child objects
 import logging
 from abc import abstractmethod
 
-from carla_cyber_bridge.parent import Parent
+from .parent import Parent
 
 
 class Child(Parent):

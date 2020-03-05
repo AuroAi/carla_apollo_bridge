@@ -12,7 +12,7 @@ Classes to handle collision events
 
 import logging
 
-from carla_cyber_bridge.sensor import Sensor
+from .sensor import Sensor
 
 
 class CollisionSensor(Sensor):

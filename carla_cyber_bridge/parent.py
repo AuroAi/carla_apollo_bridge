@@ -285,9 +285,9 @@ class Parent(object):
 
 
 # these imports have to be at the end to resolve cyclic dependency
-from carla_cyber_bridge.actor import Actor         # noqa, pylint: disable=wrong-import-position
-from carla_cyber_bridge.spectator import Spectator  # noqa, pylint: disable=wrong-import-position
-from carla_cyber_bridge.sensor import Sensor       # noqa, pylint: disable=wrong-import-position
-from carla_cyber_bridge.traffic import Traffic     # noqa, pylint: disable=wrong-import-position
-from carla_cyber_bridge.vehicle import Vehicle     # noqa, pylint: disable=wrong-import-position
-from carla_cyber_bridge.ego_vehicle import EgoVehicle  # noqa, pylint: disable=wrong-import-position
+from .actor import Actor         # noqa, pylint: disable=wrong-import-position
+from .spectator import Spectator  # noqa, pylint: disable=wrong-import-position
+from .sensor import Sensor       # noqa, pylint: disable=wrong-import-position
+from .traffic import Traffic     # noqa, pylint: disable=wrong-import-position
+from .vehicle import Vehicle     # noqa, pylint: disable=wrong-import-position
+from .ego_vehicle import EgoVehicle  # noqa, pylint: disable=wrong-import-position

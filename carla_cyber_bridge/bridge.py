@@ -16,8 +16,8 @@ import threading
 import time
 from cyber_py import cyber
 
-from carla_cyber_bridge.parent import Parent
-from carla_cyber_bridge.map import Map
+from .parent import Parent
+from .map import Map
 
 class CarlaCyberBridge(Parent):
 

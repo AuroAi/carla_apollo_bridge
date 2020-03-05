@@ -16,9 +16,9 @@ import threading
 
 from cyber_py import cyber, cyber_time
 
-from carla_cyber_bridge.actor import Actor
+from .actor import Actor
 
-import carla_cyber_bridge.transforms as trans
+import transforms as trans
 
 
 class Sensor(Actor):
@@ -186,8 +186,8 @@ class Sensor(Actor):
 
 
 # these imports have to be at the end to resolve cyclic dependency
-from carla_cyber_bridge.camera import Camera  # noqa, pylint: disable=wrong-import-position
-from carla_cyber_bridge.lidar import Lidar   # noqa, pylint: disable=wrong-import-position
-from carla_cyber_bridge.gnss import Gnss   # noqa, pylint: disable=wrong-import-position
-from carla_cyber_bridge.collision_sensor import CollisionSensor   # noqa, pylint: disable=wrong-import-position
-from carla_cyber_bridge.lane_invasion_sensor import LaneInvasionSensor   # noqa, pylint: disable=wrong-import-position
+from .camera import Camera  # noqa, pylint: disable=wrong-import-position
+from .lidar import Lidar   # noqa, pylint: disable=wrong-import-position
+from .gnss import Gnss   # noqa, pylint: disable=wrong-import-position
+from .collision_sensor import CollisionSensor   # noqa, pylint: disable=wrong-import-position
+from .lane_invasion_sensor import LaneInvasionSensor   # noqa, pylint: disable=wrong-import-position

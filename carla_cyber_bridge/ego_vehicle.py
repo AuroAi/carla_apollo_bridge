@@ -25,12 +25,8 @@ from modules.common.proto.error_code_pb2 import ErrorCode
 from modules.routing.proto.routing_pb2 import RoutingResponse
 from modules.transform.proto.transform_pb2 import TransformStamped, TransformStampeds
 
-from carla_cyber_bridge.object_sensor import ObjectSensor
-from carla_cyber_bridge.vehicle import Vehicle
-# from carla_cyber_bridge_msgs.msg import CarlaEgoVehicleInfo  # pylint: disable=no-name-in-module,import-error
-# from carla_cyber_bridge_msgs.msg import CarlaEgoVehicleInfoWheel  # pylint: disable=no-name-in-module,import-error
-# from carla_cyber_bridge_msgs.msg import CarlaEgoVehicleControl  # pylint: disable=no-name-in-module,import-error
-# from carla_cyber_bridge_msgs.msg import CarlaEgoVehicleStatus  # pylint: disable=no-name-in-module,import-error
+from .object_sensor import ObjectSensor
+from .vehicle import Vehicle
 
 # taken from: https://github.com/davheld/tf/blob/master/src/tf/transformations.py#L1100
 def quaternion_from_euler(ai, aj, ak, axes='sxyz'):

@@ -10,7 +10,7 @@
 Class to handle the carla map
 """
 
-from carla_cyber_bridge.child import Child
+from .child import Child
 
 
 class Map(Child):
