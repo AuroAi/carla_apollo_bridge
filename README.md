@@ -26,7 +26,7 @@ The following commands will be run with 3 containers:
 - carla-apollo: bridge between apollo and carla-server containers, has cyber_py and carla python packages installed and unlike apollo container, can easily display gui applications on local machine
 - apollo_dev_user: runs the apollo stack
 
-![containers-diagram](https://user-images.githubusercontent.com/3516571/69467349-66ac7b00-0d3c-11ea-9a81-ef87cfbb6b21.png)
+![containers-diagram](https://user-images.githubusercontent.com/3516571/76017110-dea94600-5ed2-11ea-9879-5777eff9f1dd.png)
 
 ### Clone and build Apollo
 
