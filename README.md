@@ -1,8 +1,8 @@
-# Carla Cyber Bridge
+# Carla Apollo Bridge
 
-This python package provides a bridge for communicating between Apollo's Cyber Python API and Carla.  Besides the source code, a Dockerfile and scripts are provided for getting setup quickly and easily.  This package was tested with Carla version 0.9.6, and Apollo v5.0.0.
+This python package provides a bridge for communicating between Apollo's Python API and Carla.  Besides the source code, a Dockerfile and scripts are provided for getting setup quickly and easily.  This package was tested with Carla version 0.9.6, and Apollo v5.0.0.
 
-This is a cyber port of the work done here: [https://github.com/carla-simulator/ros-bridge](https://github.com/carla-simulator/ros-bridge)
+Apollo runs on the [Cyber RT](https://medium.com/@apollo.baidu/apollo-cyber-rt-the-runtime-framework-youve-been-waiting-for-70cfed04eade) framework. This is a cyber port of the work done here: [https://github.com/carla-simulator/ros-bridge](https://github.com/carla-simulator/ros-bridge)
 
 ## Installation
 
@@ -23,7 +23,7 @@ For the simplest setup, we will run Carla in Docker.  You can run Carla from sou
 The following commands will be run with 3 containers:
 
 - carla-server: this container will run the Carla simulator
-- carla-cyber: bridge between apollo and carla-server containers, has cyber_py and carla python packages installed and unlike apollo container, can easily display gui applications on local machine
+- carla-apollo: bridge between apollo and carla-server containers, has cyber_py and carla python packages installed and unlike apollo container, can easily display gui applications on local machine
 - apollo_dev_user: runs the apollo stack
 
 ![containers-diagram](https://user-images.githubusercontent.com/3516571/69467349-66ac7b00-0d3c-11ea-9a81-ef87cfbb6b21.png)
@@ -58,7 +58,7 @@ This container will run the carla simulator.
 docker run --gpus=all --name=carla-server --net=host -d carlasim/carla:0.9.6
 ```
 
-### Build docker image / run container for Carla-Cyber bridge
+### Build docker image / run container for Carla-Apollo bridge
 
 This container will run the bridge and sim clients.
 
@@ -74,30 +74,30 @@ cd docker
 
 ### Run Carla client and bridge
 
-#### Enter carla-cyber docker container
+#### Enter carla-apollo docker container
 
 ```
 # run on local machine:
 
-docker exec -ti carla-cyber bash
+docker exec -ti carla-apollo bash
 ```
 
 #### Update /apollo/cyber/setup.bash
 
-Change CYBER_IP in /apollo/cyber/setup.bash to the carla-cyber container IP address
+Change CYBER_IP in /apollo/cyber/setup.bash to the carla-apollo container IP address
 
 To find out the ip address to use, run this command outside of the container:
 
 ```
 # run on local machine:
 
-docker inspect carla-cyber | grep IPAddress
+docker inspect carla-apollo | grep IPAddress
 ```
 
 Then update the file in your preferred editor
 
 ```
-# run in carla-cyber container:
+# run in carla-apollo container:
 
 vim /apollo/cyber/setup.bash
 # and so on to edit the text file
@@ -108,31 +108,31 @@ source ~/.bashrc
 
 #### Create an ego vehicle and client
 
-Run these commands inside the carla-cyber container
+Run these commands inside the carla-apollo container
 
 ```
-# run in carla-cyber container:
+# run in carla-apollo container:
 
-cd ~/carla_cyber_bridge
+cd ~/carla_apollo_bridge
 python examples/run_bridge.py
 ```
 
 In another terminal...
 
 ```
-# run in carla-cyber container in another terminal:
+# run in carla-apollo container in another terminal:
 
-cd ~/carla_cyber_bridge
+cd ~/carla_apollo_bridge
 python examples/manual_control.py
 ```
 
 #### Interfacing with the simulation
 
-For interfacing with the simulator, a copy of the Carla PythonAPI is included in the carla-cyber container.  Some uses:
+For interfacing with the simulator, a copy of the Carla PythonAPI is included in the carla-apollo container.  Some uses:
 
 ```
-# run in another carla-cyber container terminal:
-cd ~/carla_cyber_bridge/carla-python-0.9.6
+# run in another carla-apollo container terminal:
+cd ~/carla_apollo_bridge/carla-python-0.9.6
 
 # change the map
 python util/config.py -m Town04 --host 172.17.0.1
@@ -202,7 +202,7 @@ If the 'Control' module is enabled, the bridge will apply its output to the ego 
 - Traffic lights, stop signs not in the HD Map.  This is because they are not included in the Carla OpenDRIVE maps.
 - When closing the bridge sometimes objects aren't cleaned up properly and cyber will error due to duplicate nodes.  The easiest solution is to reload the map in Carla:
 ```
-root@7243ed7667bd:~/carla_cyber_bridge# python carla-python-0.9.6/util/config.py --host 172.17.0.1 -r
+root@7243ed7667bd:~/carla_apollo_bridge# python carla-python-0.9.6/util/config.py --host 172.17.0.1 -r
 ```
 - Running the Carla server and Apollo on the same machine requires a lot of resources, so performance may be choppy.
 - Ego vehicle movement sometimes gets jumpy when being moved along planned trajectory.

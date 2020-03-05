@@ -1,2 +1,2 @@
 ./get_python_api.sh
-docker build -t carla-cyber .
+docker build -t carla-apollo .
