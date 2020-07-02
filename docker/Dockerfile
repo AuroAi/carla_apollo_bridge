@@ -1,4 +1,4 @@
-FROM auroai/cyber:v5.0.0.1
+FROM auroai/cyber:v5.0.0
 # cyber / bridge requirements
 RUN apt install -y python-pip && \
     pip install \
