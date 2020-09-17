@@ -1,9 +1,11 @@
 FROM auroai/cyber:v5.0.0
 # cyber / bridge requirements
-RUN apt install -y python-pip && \
+RUN apt update && \
+    apt install -y python-pip && \
+    pip install --upgrade pip && \
     pip install \
             numpy \
-            opencv-python \
+            opencv-python==4.2.0.32 \
             protobuf \
             pygame \
             pyproj \
